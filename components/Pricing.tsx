@@ -1,0 +1,21 @@
+"use client";
+import { motion } from "framer-motion";
+import { Check, ArrowUpRight } from "lucide-react";
+import { plans } from "../lib/data";
+
+export default function Pricing(){
+ return <section id="plans" className="py-28 md:py-36 px-5 md:px-8 bg-[#2B124C]/20">
+  <div className="max-w-7xl mx-auto">
+   <div className="text-[10px] tracking-[.3em] text-[#854F6C] mb-5">06 / PLANS</div><h2 className="font-display text-5xl md:text-8xl tracking-[-.06em] leading-[.85] font-extrabold">CARE THAT<br/><span className="text-gradient">FITS YOU.</span></h2>
+   <div className="grid lg:grid-cols-3 gap-4 mt-16">
+    {plans.map((p,i)=><motion.div key={p.name} initial={{opacity:0,y:30}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{delay:i*.1}} className={`relative rounded-[2rem] p-7 md:p-8 border ${p.popular?"bg-[#FBE4D8] text-[#190019] border-[#FBE4D8]":"glass border-white/10"}`}>
+      {p.popular&&<div className="absolute top-5 right-5 text-[9px] tracking-[.2em] bg-[#190019] text-[#FBE4D8] rounded-full px-3 py-1.5">MOST POPULAR</div>}
+      <div className={`text-[10px] tracking-[.25em] ${p.popular?"text-[#854F6C]":"text-[#854F6C]"}`}>{p.name.toUpperCase()}</div>
+      <div className="font-display text-4xl md:text-5xl font-extrabold mt-7">{p.price}</div><p className={`text-xs mt-2 ${p.popular?"text-[#522B5B]":"text-[#DFB6B2]"}`}>{p.desc}</p>
+      <div className="mt-9 space-y-3">{p.features.map(f=><div key={f} className="flex items-center gap-3 text-xs"><Check size={15}/>{f}</div>)}</div>
+      <a href="#book" className={`mt-10 rounded-full w-full py-3.5 flex items-center justify-center gap-2 text-xs font-bold ${p.popular?"bg-[#190019] text-[#FBE4D8]":"bg-[#FBE4D8] text-[#190019]"}`}>CHOOSE PLAN <ArrowUpRight size={14}/></a>
+    </motion.div>)}
+   </div>
+  </div>
+ </section>
+}

@@ -28,7 +28,7 @@ export default function Navbar({ lang, setLang }: { lang: "en" | "ar"; setLang: 
         </div>
         <div className="hidden md:flex items-center gap-3">
           <LanguageToggle lang={lang} setLang={setLang} />
-          <a href="#book" className="bg-[#FBE4D8] text-[#190019] rounded-full px-5 py-2.5 text-xs font-bold flex items-center gap-1.5 hover:bg-white transition">BOOK NOW <ArrowUpRight size={14}/></a>
+          <a href="#book" className="bg-[#FBE4D8] text-[#190019] rounded-full px-5 py-2.5 text-xs font-bold flex items-center gap-1.5 hover:bg-white transition">{t.bookNow} <ArrowUpRight size={14}/></a>
         </div>
         <button className="md:hidden glass rounded-full p-2" onClick={() => setOpen(!open)} aria-label="Menu">{open ? <X size={18}/> : <Menu size={18}/>}</button>
       </nav>
@@ -39,7 +39,7 @@ export default function Navbar({ lang, setLang }: { lang: "en" | "ar"; setLang: 
               {t.nav.map((item, i) => <a onClick={() => setOpen(false)} key={item} href={`#${ids[i]}`} className="text-[#DFB6B2]">{item}</a>)}
               <div className="flex items-center justify-between pt-2">
                 <LanguageToggle lang={lang} setLang={setLang}/>
-                <a href="#book" onClick={() => setOpen(false)} className="bg-[#FBE4D8] text-[#190019] rounded-full px-4 py-2 text-xs font-bold">BOOK NOW</a>
+                <a href="#book" onClick={() => setOpen(false)} className="bg-[#FBE4D8] text-[#190019] rounded-full px-4 py-2 text-xs font-bold">{t.bookNow}</a>
               </div>
             </div>
           </motion.div>

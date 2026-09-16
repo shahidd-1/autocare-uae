@@ -1,8 +1,9 @@
 "use client";
 import { motion } from "framer-motion";
+import { translations } from "../lib/data";
 
-export default function Marquee() {
-  const words = ["PRECISION DETAILING", "PREMIUM CARE", "DOORSTEP SERVICE", "DUBAI", "ABU DHABI"];
+export default function Marquee({ lang }: { lang: "en" | "ar" }) {
+  const words = translations[lang].marquee;
   return (
     <div className="overflow-hidden border-y border-white/10 bg-[#2B124C]/25">
       <motion.div animate={{x:["0%","-50%"]}} transition={{duration:22,repeat:Infinity,ease:"linear"}} className="flex whitespace-nowrap w-max">

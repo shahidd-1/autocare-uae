@@ -22,17 +22,17 @@ export default function Home() {
       <div className="fixed inset-0 noise z-[60]"/>
       <Navbar lang={lang} setLang={setLang}/>
       <Hero lang={lang}/>
-      <Marquee/>
+      <Marquee lang={lang}/>
       <Services lang={lang}/>
-      <Experience/>
-      <CarShowcase/>
-      <HowItWorks/>
-      <BeforeAfter/>
-      <Pricing/>
-      <AppPreview/>
-      <Locations/>
-      <BookingCTA/>
-      <Footer/>
+      <Experience lang={lang}/>
+      <CarShowcase lang={lang}/>
+      <HowItWorks lang={lang}/>
+      <BeforeAfter lang={lang}/>
+      <Pricing lang={lang}/>
+      <AppPreview lang={lang}/>
+      <Locations lang={lang}/>
+      <BookingCTA lang={lang}/>
+      <Footer lang={lang}/>
     </main>
   );
 }

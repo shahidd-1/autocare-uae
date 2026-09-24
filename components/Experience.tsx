@@ -16,7 +16,7 @@ export default function Experience({ lang }: { lang: "en" | "ar" }) {
           <h2 className="font-display text-5xl md:text-8xl tracking-[-.065em] leading-[.84] font-extrabold">{t.experienceTitle1}<br/><span className="text-gradient">{t.experienceTitle2}</span></h2>
           <p className="mt-8 max-w-lg text-sm md:text-base leading-7 text-[#DFB6B2]">{t.experienceCopy}</p>
         </motion.div>
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {t.experienceItems.map((item,i)=>{
             const Icon = icons[i];
             return (

@@ -19,6 +19,12 @@ body {
   color: var(--plum-100);
   font-family: var(--font-inter), Arial, sans-serif;
   overflow-x: hidden;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+/* Keeps the fixed navbar clear of the iPhone notch / Dynamic Island */
+header.fixed {
+  padding-top: env(safe-area-inset-top, 0px);
 }
 ::selection { background: var(--plum-300); color: var(--plum-950); }
 
@@ -62,3 +68,39 @@ body {
 @media (max-width: 640px) {
   .grid-bg { background-size: 42px 42px; }
 }
+
+/* Arabic / RTL fixes ------------------------------------------------ */
+/* Swap Latin fonts for Cairo (has real Arabic glyphs) wherever the page is RTL. */
+[dir="rtl"] {
+  --font-inter: var(--font-arabic);
+  --font-manrope: var(--font-arabic);
+}
+
+/* Letter-spacing (tracking) breaks Arabic letter-joining and makes words
+   look like scattered fragments — the English display aesthetic doesn't
+   translate, so we zero it out everywhere under RTL. */
+[dir="rtl"] * {
+  letter-spacing: 0 !important;
+}
+
+/* The huge display headings use very tight line-height (leading-[.78] etc.)
+   tuned for Latin cap-height. Arabic glyphs have taller ascenders/descenders
+   and get clipped at that leading, so give headings breathing room in RTL. */
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3 {
+  line-height: 1.35 !important;
+  padding-top: 0.15em;
+}
+
+/* Overall type scale bump ------------------------------------------- */
+/* Main display headings (font-display, text-4xl..text-8xl etc.) are left
+   untouched on purpose. Everything else — nav, eyebrow labels, body copy,
+   card text, buttons — was tuned too small and is bumped up here globally
+   so we don't have to hand-edit every component. */
+[class*="text-[9px]"]  { font-size: 12px !important; }
+[class*="text-[10px]"] { font-size: 13px !important; }
+[class*="text-xs"]     { font-size: 15px !important; line-height: 1.5 !important; }
+[class*="text-sm"]     { font-size: 17px !important; line-height: 1.6 !important; }
+[class*="text-base"]   { font-size: 18px !important; line-height: 1.65 !important; }
+[class*="text-lg"]     { font-size: 20px !important; line-height: 1.6 !important; }

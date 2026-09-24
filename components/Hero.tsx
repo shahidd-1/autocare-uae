@@ -41,7 +41,7 @@ export default function Hero({ lang }: { lang: "en" | "ar" }) {
             </a>
           </motion.div>
         </div>
-        <div className="mt-14 grid grid-cols-3 max-w-2xl border-t border-white/10 pt-5">
+        <div className="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-0 max-w-2xl border-t border-white/10 pt-5">
           {t.heroStats.map((x,i)=><motion.div key={x} initial={{opacity:0}} animate={{opacity:1}} transition={{delay:1.2+i*.15}} className="text-[9px] md:text-[10px] tracking-[.18em] text-[#854F6C]">{x}</motion.div>)}
         </div>
       </div>

@@ -8,7 +8,7 @@ export default function Pricing({ lang }: { lang: "en" | "ar" }) {
  return <section id="plans" className="py-28 md:py-36 px-5 md:px-8 bg-[#2B124C]/20">
   <div className="max-w-7xl mx-auto">
    <div className="text-[10px] tracking-[.3em] text-[#854F6C] mb-5">{t.plansLabel}</div><h2 className="font-display text-5xl md:text-8xl tracking-[-.06em] leading-[.85] font-extrabold">{t.plansTitle1}<br/><span className="text-gradient">{t.plansTitle2}</span></h2>
-   <div className="grid lg:grid-cols-3 gap-4 mt-16">
+   <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-16">
     {plans.map((p,i)=><motion.div key={p.name.en} initial={{opacity:0,y:30}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{delay:i*.1}} className={`relative rounded-[2rem] p-7 md:p-8 border ${p.popular?"bg-[#FBE4D8] text-[#190019] border-[#FBE4D8]":"glass border-white/10"}`}>
       {p.popular&&<div className="absolute top-5 right-5 text-[9px] tracking-[.2em] bg-[#190019] text-[#FBE4D8] rounded-full px-3 py-1.5">{t.mostPopular}</div>}
       <div className="text-[10px] tracking-[.25em] text-[#854F6C]">{p.name[lang].toUpperCase()}</div>

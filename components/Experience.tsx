@@ -11,7 +11,7 @@ export default function Experience({ lang }: { lang: "en" | "ar" }) {
     <div className="absolute inset-0 bg-gradient-to-b from-[#2B124C]/25 via-[#190019] to-[#190019]"/>
     <div className="max-w-7xl mx-auto relative">
       <div className="grid lg:grid-cols-2 gap-14 items-center">
-        <motion.div initial={{opacity:0,x:-35}} whileInView={{opacity:1,x:0}} viewport={{once:true}} transition={{duration:.8}}>
+        <motion.div initial={{opacity:0,x:-35}} whileInView={{opacity:1,x:0}} viewport={{once:true,amount:0.3}} transition={{duration:.6,ease:"easeOut"}} style={{willChange:"transform,opacity"}}>
           <div className="text-[10px] tracking-[.3em] text-[#854F6C] mb-5">{t.experienceLabel}</div>
           <h2 className="font-display text-5xl md:text-8xl tracking-[-.065em] leading-[.84] font-extrabold">{t.experienceTitle1}<br/><span className="text-gradient">{t.experienceTitle2}</span></h2>
           <p className="mt-8 max-w-lg text-sm md:text-base leading-7 text-[#DFB6B2]">{t.experienceCopy}</p>
@@ -20,7 +20,7 @@ export default function Experience({ lang }: { lang: "en" | "ar" }) {
           {t.experienceItems.map((item,i)=>{
             const Icon = icons[i];
             return (
-            <motion.div key={item.title} initial={{opacity:0,y:30}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{delay:i*.1}} className="glass rounded-3xl p-5 md:p-7 min-h-[190px] flex flex-col justify-between group hover:bg-[#522B5B]/35 transition">
+            <motion.div key={item.title} initial={{opacity:0,y:20}} whileInView={{opacity:1,y:0}} viewport={{once:true,amount:0.3}} transition={{delay:i*.08,duration:.5,ease:"easeOut"}} style={{willChange:"transform,opacity"}} className="glass-light rounded-3xl p-5 md:p-7 min-h-[190px] flex flex-col justify-between group hover:bg-[#522B5B]/35 transition-colors">
               <Icon size={20} className="text-[#DFB6B2] group-hover:rotate-12 transition"/>
               <div><div className="text-[10px] tracking-[.2em] text-[#854F6C]">{item.title}</div><p className="text-xs md:text-sm text-[#DFB6B2] mt-2 leading-5">{item.desc}</p></div>
             </motion.div>

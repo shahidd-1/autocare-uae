@@ -22,7 +22,7 @@ export default function Navbar({ lang, setLang }: { lang: "en" | "ar"; setLang: 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "px-4 pt-3" : "px-5 pt-5"}`}>
       <nav className={`mx-auto max-w-7xl flex items-center justify-between px-4 md:px-6 py-3 rounded-full transition-all duration-500 ${scrolled ? "glass-strong shadow-2xl" : ""}`}>
-        <a href="#" className="font-display font-extrabold tracking-[.22em] text-sm md:text-base">AUTOCARE</a>
+        <a href="#" className="font-display font-extrabold tracking-[.22em] text-sm md:text-base">M2E AVENUE</a>
         <div className="hidden md:flex items-center gap-7 text-xs text-[#DFB6B2]">
           {t.nav.map((item, i) => <a key={item} href={`#${ids[i]}`} className="hover:text-[#FBE4D8] transition">{item}</a>)}
         </div>
